@@ -2,6 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from time import sleep
 import pandas as pd
+import openpyxl
 
 PATH = "C:\Windows\System32\drivers\DriverData\chromedriver.exe"
 driver = webdriver.Chrome(PATH)
@@ -20,3 +21,7 @@ for _ in table:
 df = pd.DataFrame(data_table)
 df.columns=["      Currency", "Date ", "Buy", "Sell"]
 print(df)
+
+jusan_data = 'Jusan_data.xlsx'
+df.to_excel(jusan_data)
+print('DataFrame is written to Excel File successfully.')
