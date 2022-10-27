@@ -7,7 +7,7 @@ import openpyxl
 PATH = "C:\Windows\System32\drivers\DriverData\chromedriver.exe"
 driver = webdriver.Chrome(PATH)
 driver.get("https://jusan.kz/exchange-rates")
-sleep(2)
+sleep(3)
 
 
 table = driver.find_elements(By.XPATH, '//*[@id="root"]/div/section/div[2]/div/div[3]/div/table/tbody')
