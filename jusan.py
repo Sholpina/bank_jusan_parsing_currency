@@ -4,13 +4,15 @@ from time import sleep
 import pandas as pd
 import openpyxl
 
-PATH = "C:\Windows\System32\drivers\DriverData\chromedriver.exe"
+
+PATH = r"hakaton\driver\chromedriver.exe"
 driver = webdriver.Chrome(PATH)
 driver.get("https://jusan.kz/exchange-rates")
 sleep(3)
 
 
-table = driver.find_elements(By.XPATH, '//*[@id="root"]/div/section/div[2]/div/div[3]/div/table/tbody')
+table = driver.find_elements(
+    By.XPATH, '//*[@id="root"]/div/section/div[2]/div/div[3]/div/table/tbody')
 
 data_table = []
 for _ in table:
@@ -19,7 +21,7 @@ for _ in table:
     [data_table.append(j) for j in dt[0:19]]
 
 df = pd.DataFrame(data_table)
-df.columns=["      Currency", "Date ", "Buy", "Sell"]
+df.columns = ["Currency", "Date ", "Buy", "Sell"]
 print(df)
 
 jusan_data = 'Jusan_data.xlsx'
