@@ -18,7 +18,8 @@ data_table = []
 for _ in table:
     rows = driver.find_elements(By.TAG_NAME, 'tr')
     dt = [i.text.strip().split('\n') for i in rows[1:]]
-    [data_table.append(j) for j in dt[0:19]]
+    for j in dt[0:19]:
+        data_table.append(j)
 
 df = pd.DataFrame(data_table)
 df.columns = ["Currency", "Date ", "Buy", "Sell"]
