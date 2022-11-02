@@ -2,7 +2,6 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from time import sleep
 import pandas as pd
-import openpyxl
 
 
 PATH = r"hakaton\driver\chromedriver.exe"
@@ -12,7 +11,7 @@ sleep(3)
 
 
 table = driver.find_elements(
-    By.XPATH, '//*[@id="root"]/div/section/div[2]/div/div[3]/div/table/tbody')
+    By.XPATH, '//*[@id="root"]/div/section/div/div/div[3]/div/table')
 
 data_table = []
 for _ in table:
